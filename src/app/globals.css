@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~@flaticon/flaticon-uicons/css/regular/rounded";
+@import "~@flaticon/flaticon-uicons/css/solid/straight";
+@import "~@flaticon/flaticon-uicons/css/brands/all";
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-black.otf") format("opentype");
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-bold.otf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-extrabold.otf") format("opentype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-extralight.otf") format("opentype");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-light.otf") format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-medium.otf") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-regular.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-semibold.otf") format("opentype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "lufga";
+  src: url("/assets/fonts/lufga-thin.otf") format("opentype");
+  font-weight: 100;
+}
+
+:root {
+  --foreground: 0, 0, 0;
+  --background: #fffaf3;
+  --background-lightdark: #e4e0da;
+  --background-dark: #a3a09c;
+}
+
+body,
+html {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "lufga";
+  overflow-x: hidden;
+}
+#custom-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  pointer-events: none;
+}
+#custom-cursor .svg {
+  animation: spin 12s linear infinite;
+}
+#custom-cursor .center-icon,
+.circel .center-icon {
+  position: absolute;
+  top: 42px;
+  left: 42px;
+}
+#custom-cursor .svg svg,
+.circel .svg svg {
+  width: 100px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+.summer-text {
+  transform: rotate(-90deg);
+  width: 10px;
+  margin-right: -71px;
+
+  margin-top: 44%;
+  color: #fff;
+  text-shadow: 0 0 2px #444444, 0 0 2px #444444, 0 0 2px #444444;
+  font-weight: bold;
+  letter-spacing: 8px;
+}
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
