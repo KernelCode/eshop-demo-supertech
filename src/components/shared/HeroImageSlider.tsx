@@ -67,8 +67,8 @@ export default function HeroImageSlider() {
                   className="rounded-3xl flex overflow-hidden gap-0 transition-all ease-in-out duration-500"
                   style={{ marginLeft: MainImageSize }}
                 >
-                  {Array.from({ length: 5 }).map(() => (
-                    <>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div key={"slider-" + i}>
                       <Image
                         src="/assets/imgs/fashion/pink-clothes-dream-meaning-3.jpg"
                         width={sizes.main}
@@ -90,7 +90,7 @@ export default function HeroImageSlider() {
                         style={{ width: sizes.main, minWidth: sizes.main }}
                         alt="product"
                       />
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -131,9 +131,9 @@ export default function HeroImageSlider() {
                 className="rounded-3xl flex overflow-hidden gap-0 transition-all ease-in-out duration-500"
                 style={{ marginLeft: SecondImageSize }}
               >
-                {Array.from({ length: 5 }).map(() => {
+                {Array.from({ length: 5 }).map((_, i) => {
                   return (
-                    <>
+                    <div key={"slider2-" + i}>
                       <Image
                         src="/assets/imgs/fashion/4 (1).png"
                         width={sizes.second}
@@ -155,7 +155,7 @@ export default function HeroImageSlider() {
                         style={{ width: sizes.second, minWidth: sizes.second }}
                         alt="product"
                       />
-                    </>
+                    </div>
                   );
                 })}
               </div>
