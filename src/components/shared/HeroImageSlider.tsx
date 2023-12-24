@@ -68,7 +68,7 @@ export default function HeroImageSlider() {
                   style={{ marginLeft: MainImageSize }}
                 >
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <>
+                    <React.Fragment key={"slider-" + i}>
                       <Image
                         src="/assets/imgs/fashion/pink-clothes-dream-meaning-3.jpg"
                         width={sizes.main}
@@ -90,7 +90,7 @@ export default function HeroImageSlider() {
                         style={{ width: sizes.main, minWidth: sizes.main }}
                         alt="product"
                       />
-                    </>
+                    </React.Fragment>
                   ))}
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function HeroImageSlider() {
               >
                 {Array.from({ length: 5 }).map((_, i) => {
                   return (
-                    <>
+                    <React.Fragment key={"slider2-" + i}>
                       <Image
                         src="/assets/imgs/fashion/4 (1).png"
                         width={sizes.second}
@@ -155,7 +155,7 @@ export default function HeroImageSlider() {
                         style={{ width: sizes.second, minWidth: sizes.second }}
                         alt="product"
                       />
-                    </>
+                    </React.Fragment>
                   );
                 })}
               </div>
