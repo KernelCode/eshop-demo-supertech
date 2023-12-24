@@ -1,14 +1,22 @@
 "use client";
+/**
+ * ProductQuickViewModal Component
+ *
+ * A modal component that displays a quick view of a product,
+ * including its image, name, rating, price, quantity, and buttons for adding to cart and wishlist.
+ * It also provides options for sharing the product and displays additional
+ * information such as SKU, category, and tags.
+ */
 
 import React, { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@/Providers/context/Global.context";
-import { IProduct } from "@/components/Product";
-import Badge from "@/components/Badge";
+import { IProduct } from "@/components/shared/Product";
+import Badge from "@/components/shared/Badge";
 import Button from "./Button";
 
 import Stars from "./Stars";
 
-export default function ProductQuickView() {
+export default function ProductQuickViewModal() {
   const { state, dispatch } = useContext(GlobalContext);
   const [product, setProduct] = useState<IProduct | null>(null);
 
@@ -38,10 +46,10 @@ export default function ProductQuickView() {
             <div className="mt-1">
               <Stars rating={3.7} />
             </div>
-            <div className="mt-2 text-gray-600 text-xs leading-6">
+            <p className="mt-2 text-gray-600 text-xs leading-6">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua.
-            </div>
+            </p>
             <div className="flex gap-16 mt-5 ">
               <div>
                 <div className="text-xs font-medium">Price</div>

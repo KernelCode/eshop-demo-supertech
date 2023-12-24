@@ -1,3 +1,11 @@
+/**
+ * Stars Component
+ *
+ * A component that displays a star rating based on a given rating value.
+ * It renders a row of stars, filled or empty, representing the rating.
+ * It also displays the rating value and the number of customer reviews.
+ */
+
 interface StarRatingProps {
   rating: number;
 }

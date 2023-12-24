@@ -1,19 +1,20 @@
 import { Metadata, ResolvingMetadata } from "next";
-
-import Badge from "@/components/Badge";
+import Badge from "@/components/shared/Badge";
 import CurrentPath from "@/components/layout/CurrentPath";
-import Product, { IProduct } from "@/components/Product";
+import Product, { IProduct } from "@/components/shared/Product";
 import { products } from "@/data.json";
 import Image from "next/image";
-import ProductImage from "@/components/ProductImage";
-import ProductButtons from "@/components/ProductButtons";
+import ProductImage from "@/components/shared/ProductImage";
+import ProductOrderSection from "@/components/shared/ProductOrderSection";
 import Link from "next/link";
-import Stars from "@/components/Stars";
+import Stars from "@/components/shared/Stars";
 
+// page props
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
+// we generate title based on the id passed in the url
 export async function generateMetadata({ params, searchParams }: Props, parent: ResolvingMetadata): Promise<Metadata> {
   const { id } = params;
   const product: IProduct = products.find((p) => p.productId === id)!;
@@ -29,7 +30,7 @@ export default function Products({ params }: { params: { id: string } }) {
   return (
     <main className="mt-[20px] tablet:mt-[60px] mx-2 tablet:mx-10">
       <CurrentPath type="short" />
-      <div className="flex gap-5 flex-col tablet:flex-row">
+      <section className="flex gap-5 flex-col tablet:flex-row">
         <div className="w-full phone:w-[33%] max-w-auto phone:max-w-[400px] min-w-auto phone:min-w-[300px] rounded-3xl overflow-hidden">
           <ProductImage product={product} />
         </div>
@@ -44,11 +45,11 @@ export default function Products({ params }: { params: { id: string } }) {
           <div className="mt-1">
             <Stars rating={3.7} />
           </div>
-          <div className="mt-1 text-gray-600 text-xs leading-6">
+          <p className="mt-1 text-gray-600 text-xs leading-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat.
-          </div>
+          </p>
           <div className="flex gap-16 mt-5 ">
             <div>
               <div className=" text-xs font-medium">Quantity</div>
@@ -122,10 +123,10 @@ export default function Products({ params }: { params: { id: string } }) {
           </div>
         </div>
         <div className="w-[24%] max-w-[250px] hidden laptop:block ">
-          <ProductButtons product={product} />
+          <ProductOrderSection product={product} />
         </div>
-      </div>
-      <div className="text-center w-full tablet:w-[80%] m-auto ">
+      </section>
+      <section className="text-center w-full tablet:w-[80%] m-auto ">
         <div className="flex justify-center items-center gap-10 w-full mt-20 text-xs font-semibold">
           <div className="py-2 border-b-2 border-black cursor-pointer">Description</div>
           <div className="py-2 cursor-pointer">Reviews 12</div>
@@ -133,13 +134,13 @@ export default function Products({ params }: { params: { id: string } }) {
         <div className=" border-b-[1px]  border-[var(--background-lightdark)]  "></div>
         <div className="mt-10">
           <div className="text-xs font-semibold"> Flawless Denim Delights</div>
-          <div className="mt-1 text-gray-600 text-xs leading-6">
+          <p className="mt-1 text-gray-600 text-xs leading-6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat.
-          </div>
+          </p>
           <div className="flex gap-5 mt-10 flex-col tablet:flex-row">
             <div className="flex gap-2">
               <Badge size="m" disabled>
@@ -184,7 +185,7 @@ export default function Products({ params }: { params: { id: string } }) {
             })}
           </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

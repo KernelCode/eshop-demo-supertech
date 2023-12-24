@@ -1,11 +1,26 @@
 "use client";
-import React, { createContext, useReducer, ReactNode } from "react";
-import { IProduct } from "@/components/Product";
+/**
+ * GlobalContextProvider Component
+ *
+ * A context provider component that manages the global state of the application.
+ * It uses a reducer function to handle different actions and update the state accordingly.
+ * The component initializes the initial state and provides the state and dispatch function through the GlobalContext.
+ * It also retrieves the previous state from local storage, if available, to persist the cart data.
+ */
 
+import React, { createContext, useReducer, ReactNode } from "react";
+import { IProduct } from "@/components/shared/Product";
+
+// the main global state
 export interface GlobalState {
+  // cart products
   cart: IProduct[];
-  mouse: string | null;
+  // hide | null : don't show
+  // hero : show the hero custom cursor
+  mouse: "hide" | null | "hero";
+  // manage cart menu visiblty
   cartMenuOpen: boolean;
+  // manage quick view product and visiblty
   quickViewProduct: IProduct | null;
 }
 

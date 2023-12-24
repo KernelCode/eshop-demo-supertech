@@ -1,4 +1,23 @@
 "use client";
+/**
+ * ProductImage Component
+ *
+ * A component that displays the main image of a product with zoom functionality and thumbnail images.
+ *
+ * Props:
+ * - product: The product object containing information such as price, name, designer, etc.
+ */
+
+/**
+ * ThumbProductImage Component
+ *
+ * A component that displays a thumbnail of a product image and triggers a callback when clicked.
+ *
+ * Props:
+ * - product: The product object containing information such as price, name, designer, etc.
+ * - changeImage: A callback function to change the currently displayed image.
+ */
+
 import { products } from "@/data.json";
 import { IProduct } from "./Product";
 import { useCallback, useEffect, useState } from "react";

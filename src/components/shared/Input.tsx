@@ -1,3 +1,13 @@
+/**
+ * Input Component
+ *
+ * A reusable input component with an optional search icon.
+ *
+ * Props:
+ * - className: Additional CSS class names to be applied to the input container (default: "").
+ * - All other props are forwarded to the underlying HTML input element.
+ */
+
 import { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

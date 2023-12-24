@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+// This is a component to display the current page path to the user, such as "Home > Shop", "Home > Cart", etc.
+// We detect the page by the pathname.
 export default function CurrentPath({ title, type }: { title?: string; type?: "short" }) {
   const pathname = usePathname();
   if (type === "short") {

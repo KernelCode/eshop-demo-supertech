@@ -1,12 +1,11 @@
 import { products } from "@/data.json";
-
-import Product, { IProduct } from "@/components/Product";
-
+import Product, { IProduct } from "@/components/shared/Product";
 import Link from "next/link";
-import Button from "@/components/Button";
-import Tag from "@/components/Tag";
+import Button from "@/components/shared/Button";
+import Tag from "@/components/shared/Tag";
 
-function checks(page: string) {
+// we check the page number and return start, end, pagenumber based on the passed page from url
+function pageChecks(page: string) {
   let pageNumber = parseInt(page ?? "0");
   if (pageNumber < 0 || isNaN(pageNumber)) return { start: 0, end: 12, pageNumber: 0 };
 
@@ -15,6 +14,8 @@ function checks(page: string) {
 
   return { start, end, pageNumber };
 }
+
+// this will be a backend job (sql/no-sql ..etc)
 function getProducts(
   start: number,
   end: number,
@@ -43,12 +44,12 @@ function getProducts(
 }
 
 export default function Products({ searchParams }: { searchParams: { [key: string]: string } }) {
-  /* we save the state in the url .. like cats and start and any other values so the search engins can crwols
-  and read the page 
+  /* We save the state in the URL, such as cats, start, and any other values, 
+  so that search engines can crawl and read the page.
   */
   let { page, cats, title } = searchParams;
 
-  const { start, end, pageNumber } = checks(page);
+  const { start, end, pageNumber } = pageChecks(page);
 
   let { currentPageProducts, totalPages }: { currentPageProducts: IProduct[]; totalPages: number } = getProducts(
     start,

@@ -1,11 +1,18 @@
 "use client";
+/**
+ * RangeSlider Component
+ *
+ * A component that represents a range slider for selecting a price range.
+ * It allows the user to slide a handle to select a price value, and displays the selected price value.
+ */
+
 import { useState } from "react";
 
-export default function RangeSlider({ children, className = "" }: { className?: string; children?: React.ReactNode }) {
+export default function RangeSlider() {
   const [price, setPrice] = useState(0);
   return (
     <>
-      {/* no time to create a slider compoenet that really handels the ui requerimnets ..*/}
+      {/* sorry :( no time to create a slider compoenet that really handels the ui requerimnets ..*/}
       <input
         type="range"
         min={1}

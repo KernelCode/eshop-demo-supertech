@@ -1,3 +1,15 @@
+/**
+ * Badge Component
+ *
+ * A badge component used to display small pieces of information or labels.
+ *
+ * Props:
+ * - className: Additional CSS class names to be applied to the badge (default: "").
+ * - children: Content to be displayed inside the badge.
+ * - size: Determines the size of the badge. Accepts "m" or "s" (default: "s").
+ * - selected: Determines if the badge is in a selected state (default: false).
+ * - disabled: Determines if the badge is disabled (default: false).
+ */
 export default function Badge({
   children,
   size = "s",

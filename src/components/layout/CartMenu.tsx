@@ -3,8 +3,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "@/Providers/context/Global.context";
 import Image from "next/image";
-import { IProduct } from "../Product";
-import Button from "../Button";
+import { IProduct } from "../shared/Product";
+import Button from "../shared/Button";
+
 interface ProductCartItemProps {
   products: IProduct[];
   count: number;
@@ -55,10 +56,13 @@ export default function CartMenu() {
   const [productsGrouped, setProductsGrouped] = useState<{ [key: string]: IProduct[] } | null>(null);
   const { state, dispatch } = useContext(GlobalContext);
   const [cart, setCart] = useState<IProduct[]>([]);
+
   useEffect(() => {
     setCart(state.cart || []);
   }, [state.cart]);
+
   useEffect(() => {
+    // we group the saved products in the cart so we can delete them by id or one by one
     const groupedProducts = cart.reduce((grouped: { [key: string]: IProduct[] }, product: IProduct) => {
       const { productId } = product;
       if (!grouped[productId]) {
@@ -69,7 +73,9 @@ export default function CartMenu() {
     }, {});
     setProductsGrouped(groupedProducts);
   }, [cart]);
+
   useEffect(() => {
+    // Disable body and HTML scrolling when in menu/modal mode!
     document.documentElement.style.overflowY = state.cartMenuOpen ? "hidden" : "auto";
     document.body.style.overflowY = state.cartMenuOpen ? "hidden" : "auto";
   }, [state.cartMenuOpen]);

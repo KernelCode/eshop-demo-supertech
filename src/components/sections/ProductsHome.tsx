@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Product from "../Product";
+import Product from "../shared/Product";
 import { products, categories } from "@/data.json";
 
 export default function ProductsHome() {
@@ -26,7 +26,7 @@ export default function ProductsHome() {
       </div>
       <div className="flex justify-center tablet:justify-between  gap-6 mt-5 flex-wrap mx-2">
         {(selectedCat === "All" ? products : products.filter((product) => product.category.includes(selectedCat)))
-          // for mockup purpses
+          // For mockup purposes.
           .slice(0, 8)
           .map((product, i) => {
             return <Product key={i + product.name} product={product} />;

@@ -1,6 +1,6 @@
-import Button from "../Button";
-import InViewScroll from "../InViewScroll";
-import Slider from "../Slider";
+import Button from "../shared/Button";
+import InViewScroll from "../shared/InViewScroll";
+import HeroImageSlider from "../shared/HeroImageSlider";
 
 export default function Hero() {
   return (
@@ -79,7 +79,7 @@ export default function Hero() {
             </div>
           </InViewScroll>
         </div>
-        <Slider />
+        <HeroImageSlider />
       </div>
     </section>
   );

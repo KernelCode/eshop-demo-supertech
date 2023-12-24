@@ -1,27 +1,41 @@
 "use client";
+/**
+ * HeroImageSlider Component
+ *
+ * A component that displays a hero image slider with multiple images and text.
+ * It allows the user to navigate through the images and displays different text for each slide.
+ */
+
 import React, { useContext, useEffect, useState } from "react";
 
 import { GlobalContext } from "@/Providers/context/Global.context";
 import InViewScroll from "./InViewScroll";
 import Image from "next/image";
 
-export default function Slider() {
-  const { state, dispatch } = useContext(GlobalContext);
-  const [t, setT] = useState(0);
-  const [t2, setT2] = useState(0);
+export default function HeroImageSlider() {
+  const { dispatch } = useContext(GlobalContext);
+  // manage the slider image sizes using js .. the images are fixed in size so we can scroll
+  // between them using margin left value
+  // MainImageSize and SecondImageSize and the image "margin-left" value in px
+  const [MainImageSize, setMainImageSize] = useState(0);
+  const [SecondImageSize, setSecondImageSize] = useState(0);
+
+  // texts that display on every slide
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const texts = ["SUMMER", "WINTER", "FALL"];
-  const [sizes, setSizes] = useState({ big: 300, small: 200 });
+
+  // we manage the image sizes by screen width
+  const [sizes, setSizes] = useState({ main: 300, second: 200 });
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        return setSizes({ big: 250, small: 200 });
+        return setSizes({ main: 250, second: 200 });
       }
       if (window.innerWidth < 750) {
-        return setSizes({ big: 350, small: 200 });
+        return setSizes({ main: 350, second: 200 });
       }
 
-      setSizes({ big: 400, small: 300 });
+      setSizes({ main: 400, second: 300 });
     };
 
     window.addEventListener("resize", handleResize);
@@ -38,7 +52,7 @@ export default function Slider() {
         dispatch({ type: "SET_MOUSE", payload: null });
       }}
       onMouseEnter={() => {
-        dispatch({ type: "SET_MOUSE", payload: "data" });
+        dispatch({ type: "SET_MOUSE", payload: "hero" });
       }}
     >
       <div className="flex gap-10 tablet:gap-16 w-max justify-items-center items-center -mr-1/2">
@@ -48,32 +62,32 @@ export default function Slider() {
             classNameNotInView="duration-100 delay-700 animate-out fade-out fill-mode-forwards"
           >
             <div className="relative">
-              <div className="" style={{ width: sizes.big }}>
+              <div className="" style={{ width: sizes.main }}>
                 <div
                   className="rounded-3xl flex overflow-hidden gap-0 transition-all ease-in-out duration-500"
-                  style={{ marginLeft: t }}
+                  style={{ marginLeft: MainImageSize }}
                 >
                   {Array.from({ length: 5 }).map(() => (
                     <>
                       <Image
                         src="/assets/imgs/fashion/pink-clothes-dream-meaning-3.jpg"
-                        width={sizes.big}
+                        width={sizes.main}
                         height={300}
-                        style={{ width: sizes.big, minWidth: sizes.big }}
+                        style={{ width: sizes.main, minWidth: sizes.main }}
                         alt="product"
                       />
                       <Image
                         src="/assets/imgs/fashion/4 (1).png"
-                        width={sizes.big}
+                        width={sizes.main}
                         height={300}
-                        style={{ width: sizes.big, minWidth: sizes.big }}
+                        style={{ width: sizes.main, minWidth: sizes.main }}
                         alt="product"
                       />
                       <Image
                         src="/assets/imgs/fashion/1-240x300.png"
-                        width={sizes.big}
+                        width={sizes.main}
                         height={300}
-                        style={{ width: sizes.big, minWidth: sizes.big }}
+                        style={{ width: sizes.main, minWidth: sizes.main }}
                         alt="product"
                       />
                     </>
@@ -83,9 +97,9 @@ export default function Slider() {
               <div className="absolute bottom-[30px] bg-[var(--background)] p-2 -right-[30px] rounded-full">
                 <span
                   onClick={() => {
-                    setT2(t2 - sizes.small);
+                    setSecondImageSize(SecondImageSize - sizes.second);
                     setTimeout(() => {
-                      setT(t - sizes.big);
+                      setMainImageSize(MainImageSize - sizes.main);
                       currentTextIndex > texts.length - 2
                         ? setCurrentTextIndex(0)
                         : setCurrentTextIndex(currentTextIndex + 1);
@@ -112,33 +126,33 @@ export default function Slider() {
             classNameInView="duration-1000 delay-100 animate-in fade-in fill-mode-backwards"
             classNameNotInView="duration-100 delay-100 animate-out fade-out fill-mode-forwards"
           >
-            <div className="" style={{ width: sizes.small }}>
+            <div className="" style={{ width: sizes.second }}>
               <div
                 className="rounded-3xl flex overflow-hidden gap-0 transition-all ease-in-out duration-500"
-                style={{ marginLeft: t2 }}
+                style={{ marginLeft: SecondImageSize }}
               >
                 {Array.from({ length: 5 }).map(() => {
                   return (
                     <>
                       <Image
                         src="/assets/imgs/fashion/4 (1).png"
-                        width={sizes.small}
+                        width={sizes.second}
                         height={200}
-                        style={{ width: sizes.small, minWidth: sizes.small }}
+                        style={{ width: sizes.second, minWidth: sizes.second }}
                         alt="product"
                       />
                       <Image
                         src="/assets/imgs/fashion/1-240x300.png"
-                        width={sizes.small}
+                        width={sizes.second}
                         height={200}
-                        style={{ width: sizes.small, minWidth: sizes.small }}
+                        style={{ width: sizes.second, minWidth: sizes.second }}
                         alt="product"
                       />
                       <Image
                         src="/assets/imgs/fashion/pink-clothes-dream-meaning-3.jpg"
-                        width={sizes.small}
+                        width={sizes.second}
                         height={200}
-                        style={{ width: sizes.small, minWidth: sizes.small }}
+                        style={{ width: sizes.second, minWidth: sizes.second }}
                         alt="product"
                       />
                     </>

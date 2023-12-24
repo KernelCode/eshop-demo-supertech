@@ -1,3 +1,17 @@
+/**
+ * Button Component
+ *
+ * Props:
+ * - size: Determines the size of the button. Accepts "large" or "small" (default: "large").
+ * - className: Additional CSS class names to be applied to the button (default: "").
+ * - children: Content to be displayed inside the button.
+ * - icon: Optional icon to be displayed alongside the button content.
+ * - type: Determines the button style. Accepts "fill", "outline", "icon", "fill-white", or "icon-fill" (default: "outline").
+ * - rounded: Determines the roundness of the button. Accepts the CSS class name for rounded styles (default: "rounded-md").
+ * - active: Determines if the button is in an active state (default: false).
+ * - onClick: Callback function to be executed when the button is clicked.
+ */
+
 export default function Button({
   children,
   size = "large",

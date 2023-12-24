@@ -1,4 +1,15 @@
 "use client";
+/**
+ * ProductHover Component
+ *
+ * A component that displays additional information and actions when hovering over a product.
+ *
+ * Props:
+ * - product: The product object containing information such as price, name, designer, etc.
+ * - children: Additional content to be rendered within the component.
+ * - quickView: Determines if the quick view feature is enabled (default: true).
+ */
+
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
@@ -16,6 +27,8 @@ export default function ProductHover({
   quickView?: boolean;
 }) {
   const [hover, setHover] = useState(false);
+  // this is for the quick view .. it's modal lives in the layout so it's managed using the
+  // global store ..
   const { state, dispatch } = useContext(GlobalContext);
 
   return (
@@ -57,6 +70,7 @@ export default function ProductHover({
         <i className="cursor-pointer hover:bg-black hover:text-white  fi fi-rr-heart text-[13px] w-8 h-8 rounded-full bg-gray-500/50 text-center  leading-9 "></i>
         <i
           onClick={(event: any) => {
+            // animate on every click
             event.target.classList.add("animate-in");
             event.target.classList.add("zoom-in-150");
 

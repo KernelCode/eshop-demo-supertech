@@ -1,8 +1,8 @@
-import Marquee from "@/components/Marquee";
-import Hero from "@/components/Sections/Hero";
-import HomeCategories from "@/components/Sections/HomeCategories";
-import HomeSale from "@/components/Sections/HomeSale";
-import ProductsHome from "@/components/Sections/ProductsHome";
+import Marquee from "@/components/shared/Marquee";
+import Hero from "@/components/sections/Hero";
+import HomeCategories from "@/components/sections/HomeCategories";
+import HomeSale from "@/components/sections/HomeSale";
+import ProductsHome from "@/components/sections/ProductsHome";
 
 export default function Home() {
   return (

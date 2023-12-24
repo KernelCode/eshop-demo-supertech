@@ -1,3 +1,11 @@
+/**
+ * Tag Component
+ *
+ * A component that represents a tag with optional click functionality.
+ * It displays the tag content and an "X" icon for removing the tag.
+ * The component accepts optional className, children, and onClick props.
+ */
+
 export default function Tag({
   children,
   onClick,

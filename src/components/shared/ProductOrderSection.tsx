@@ -1,10 +1,19 @@
 "use client";
+/**
+ * ProductOrderSection Component
+ *
+ * A component that displays the order section of a product, including offers, return policy, total amount, and buttons for adding to wishlist and cart.
+ *
+ * Props:
+ * - product: The product object containing information such as price, name, designer, etc.
+ */
+
 import React, { useContext } from "react";
 import { IProduct } from "./Product";
 import Button from "./Button";
 import { GlobalContext } from "@/Providers/context/Global.context";
 
-export default function ProductButtons({ product }: { product: IProduct }) {
+export default function ProductOrderSection({ product }: { product: IProduct }) {
   const { state, dispatch } = useContext(GlobalContext);
   return (
     <div className="border-[1px] border-black p-4 rounded-2xl">

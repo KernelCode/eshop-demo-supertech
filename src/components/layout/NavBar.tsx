@@ -4,17 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect, useRef, useState } from "react";
-import { IProduct } from "@/components/Product";
+import { IProduct } from "@/components/shared/Product";
+
 export default function Nav() {
   const pathname = usePathname();
+  // This is a small function that returns the class name to style the active path.
   const isCurrentPath = (isCurrentPath: boolean) => (isCurrentPath ? "font-bold text-zinc-700" : "text-zinc-400");
   const { state, dispatch } = useContext(GlobalContext);
   const [cart, setCart] = useState<IProduct[]>([]);
   const cartIconRef = useRef<HTMLElement | null>(null);
   const [scroll, setScroll] = useState(0);
+
   useEffect(() => {
     setCart(state.cart);
-
+    // we manually control the cartIcon to animate it when there's new item added to the cart
     cartIconRef.current?.classList.add("animate-in");
     cartIconRef.current?.classList.add("zoom-in-150");
 
@@ -23,7 +26,9 @@ export default function Nav() {
       cartIconRef.current?.classList.remove("zoom-in-150");
     }, 500);
   }, [state.cart, cartIconRef]);
+
   useEffect(() => {
+    // We detect the scroll Y position to check if the navbar has exceeded 100px and change the background accordingly.
     const handleScroll = () => {
       setScroll(window.scrollY);
     };
