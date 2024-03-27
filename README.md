@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Interview Request
+Thank you for your interest in Supertech Group in Riyadh. We've had an overwhelming response of job applications, and I'd like to congratulate you for being shortlisted for the job! 
 
-## Getting Started
+We would like to invite you for assessment, Your completed task will be reviewed on a first come first serve basis and upon successful passing of the test you will be invited to a set of final round interviews in which you will be asked to explain the thought process behind the work you submitted.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Please finish as much as you can from the points below and you will be evaluated on your submitted code quality and number of finished points. Pick any eCommerce theme of your choice from WordPress Themes & Website Templates from ThemeForest and implement the main page, detail page and add to cart functionality using Next.js.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For your test,
+- Use Next.js pages directory (app directory is optional)
+- use Typescript
+- Use TailwindCSS
+- Ensure support of modern web browsers
+- Follow ES6 best practices.
+- Responsive web design.
+- Hover and focus effects.
+- Motion and transition effects.
+- Apply Zoom or Gallery view to the main product image
+- Apply Next and previous products navigation. 
+- Cart functionality using any state management (Context Provider is a bonus), persists with cookie/storage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+Wrapping up
+Reply to this mail thread with ZIP and the folder with source files
+The deadline for this test is Sunday "24th December 2023"
 
-To learn more about Next.js, take a look at the following resources:
+Your work will not be used, published or distributed by Supertech Group. The purpose of this test is to solely evaluate your experience in development skills. We will be assessing the code's readability, functionality, comments, styling/standards, speed, efficiency, attention to detail and your ability to execute requirements. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Kindly confirm acceptance of the test and please do not hesitate to contact me if you've any questions. I look forward to seeing your work and meeting you at the second interview if your test is successful.
 
-## Deploy on Vercel
+## Selected theme Figma Template
+https://themeforest.net/item/pixio-ecommerce-figma-template/49699586
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Screenshots
+![Alt text](/screenshots/1.jpg "Pixio ")
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Live preview
+https://eshop-demo-supertech.vercel.app
